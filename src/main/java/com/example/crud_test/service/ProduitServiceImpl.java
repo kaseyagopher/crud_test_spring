@@ -2,9 +2,12 @@ package com.example.crud_test.service;
 
 import com.example.crud_test.model.Produit;
 import com.example.crud_test.repository.ProduitRepository;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
+@AllArgsConstructor
 public class ProduitServiceImpl implements ProduitService {
     private ProduitRepository produitRepository;
 
@@ -27,11 +30,12 @@ public class ProduitServiceImpl implements ProduitService {
                     p.setDescription(produit.getDescription());
 
                     return produitRepository.save(p);
-                }).orElseThrow()
+                }).orElseThrow(()-> new RuntimeException("product not found"));
     }
 
     @Override
     public String delete(Long id) {
-        return "";
+        produitRepository.deleteById(id);
+        return "Produit deleted";
     }
 }
