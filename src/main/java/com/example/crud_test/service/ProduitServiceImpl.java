@@ -21,8 +21,10 @@ public class ProduitServiceImpl implements ProduitService {
         return produitRepository.findAll();
     }
 
+
+
     @Override
-    public Produit updateProdui(Long id, Produit produit) {
+    public Produit updateProduit(Long id, Produit produit) {
         return produitRepository.findById(id)
                 .map(p->{
                     p.setNom(produit.getNom());

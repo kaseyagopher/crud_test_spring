@@ -9,7 +9,9 @@ public interface ProduitService {
 
     List<Produit> listProduits();
 
-    Produit updateProdui(Long id, Produit produit);
+
+
+    Produit updateProduit(Long id, Produit produit);
 
     String delete(Long id);
 }
